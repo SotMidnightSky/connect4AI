@@ -61,6 +61,10 @@ def game1(pf_rows, pf_columns):
             if pf_data[i, column] == 0:
                 pf_data[i, column] = player_display
                 break
+
+        if check_win(pf_data, player):
+            print("Player ", player, " wins!")
+            exit()
         player ^= 1
 
 
@@ -75,6 +79,91 @@ def game1(pf_rows, pf_columns):
     # Done! Time to quit.
 
     pygame.quit()
+
+
+def check_win(pf_data, player):
+    num_rows, num_cols = pf_data.shape
+    count = 0
+    # check vertical wins
+    for column in range(num_cols):
+        for row in range(num_rows):
+            if pf_data[column,row] == player:
+                count += 1
+            else:
+                count = 0
+                if count == 4:
+                    return True
+    count = 0
+    # check horizontal wins
+    for row in range(num_rows):
+        for column in range(num_cols):
+            if pf_data[column, row] == player:
+                count += 1
+            else:
+                count = 0
+            if count == 4:
+                return True
+    count = 0
+    # check forward-down diagonal wins
+    column = 0
+    for y in range(0,num_rows - 3):
+        row = y
+        while row < num_rows and column < num_cols:
+            if pf_data[column, row] == player:
+                count += 1
+            else:
+                count = 0
+            if count == 4:
+                return True
+            row += 1
+            column += 1
+    count = 0
+    row = 0
+    for x in range(1,num_cols - 3):
+        column = x
+        while row < num_rows and column < num_cols:
+            if pf_data[column, row] == player:
+                count += 1
+            else:
+                count = 0
+            if count == 4:
+                return True
+            row += 1
+            column += 1
+    count = 0
+    # check forward-up diagonal wins
+    column = 0
+    for y in reversed(range(0, num_rows - 3)):
+        row = y
+        while row >= 0 and column < num_cols:
+            if pf_data[column, row] == player:
+                count += 1
+            else:
+                count = 0
+            if count == 4:
+                return True
+            row -= 1
+            column += 1
+    count = 0
+    row = num_rows - 1
+    for x in range(1, num_cols - 3):
+        column = x
+        while row >= 0 and column < num_cols:
+            if pf_data[column, row] == player:
+                count += 1
+            else:
+                count = 0
+            if count == 4:
+                return True
+            row -= 1
+            column += 1
+    return False
+
+
+
+
+
+    return False
 
 
 
