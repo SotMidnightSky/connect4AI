@@ -82,22 +82,24 @@ def game1(pf_rows, pf_columns):
 
 
 def check_win(pf_data, player):
+    #shift from 2 player to white + 2 player
+    player += 1
     num_rows, num_cols = pf_data.shape
     count = 0
     # check vertical wins
     for column in range(num_cols):
         for row in range(num_rows):
-            if pf_data[column,row] == player:
+            if pf_data[row, column] == player:
                 count += 1
             else:
                 count = 0
-                if count == 4:
-                    return True
+            if count == 4:
+                return True
     count = 0
     # check horizontal wins
     for row in range(num_rows):
         for column in range(num_cols):
-            if pf_data[column, row] == player:
+            if pf_data[row, column] == player:
                 count += 1
             else:
                 count = 0
@@ -109,7 +111,7 @@ def check_win(pf_data, player):
     for y in range(0,num_rows - 3):
         row = y
         while row < num_rows and column < num_cols:
-            if pf_data[column, row] == player:
+            if pf_data[row, column] == player:
                 count += 1
             else:
                 count = 0
@@ -122,7 +124,7 @@ def check_win(pf_data, player):
     for x in range(1,num_cols - 3):
         column = x
         while row < num_rows and column < num_cols:
-            if pf_data[column, row] == player:
+            if pf_data[row, column] == player:
                 count += 1
             else:
                 count = 0
@@ -136,7 +138,7 @@ def check_win(pf_data, player):
     for y in reversed(range(0, num_rows - 3)):
         row = y
         while row >= 0 and column < num_cols:
-            if pf_data[column, row] == player:
+            if pf_data[row, column] == player:
                 count += 1
             else:
                 count = 0
@@ -149,7 +151,7 @@ def check_win(pf_data, player):
     for x in range(1, num_cols - 3):
         column = x
         while row >= 0 and column < num_cols:
-            if pf_data[column, row] == player:
+            if pf_data[row, column] == player:
                 count += 1
             else:
                 count = 0
