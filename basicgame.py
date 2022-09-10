@@ -107,8 +107,8 @@ def check_win(pf_data, player):
                 return True
     count = 0
     # check forward-down diagonal wins
-    column = 0
     for y in range(0,num_rows - 3):
+        column = 0
         row = y
         while row < num_rows and column < num_cols:
             if pf_data[row, column] == player:
@@ -120,8 +120,8 @@ def check_win(pf_data, player):
             row += 1
             column += 1
     count = 0
-    row = 0
     for x in range(1,num_cols - 3):
+        row = 0
         column = x
         while row < num_rows and column < num_cols:
             if pf_data[row, column] == player:
@@ -134,8 +134,8 @@ def check_win(pf_data, player):
             column += 1
     count = 0
     # check forward-up diagonal wins
-    column = 0
     for y in reversed(range(0, num_rows - 3)):
+        column = 0
         row = y
         while row >= 0 and column < num_cols:
             if pf_data[row, column] == player:
@@ -147,8 +147,8 @@ def check_win(pf_data, player):
             row -= 1
             column += 1
     count = 0
-    row = num_rows - 1
     for x in range(1, num_cols - 3):
+        row = num_rows - 1
         column = x
         while row >= 0 and column < num_cols:
             if pf_data[row, column] == player:
