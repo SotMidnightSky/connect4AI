@@ -1,6 +1,6 @@
 import pygame
 import numpy as np
-import sys
+#import sys
 
 BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
@@ -157,12 +157,6 @@ def check_win(pf_data, player):
                 return True
             row -= 1
             column += 1
-    return False
-
-
-
-
-
     return False
 
 
