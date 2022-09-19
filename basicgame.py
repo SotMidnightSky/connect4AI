@@ -9,8 +9,6 @@ RED = (255, 0, 0)
 YELLOW = (255, 255, 0)
 WINDOW_HEIGHT = 500
 WINDOW_WIDTH = 500
-
-
 def game1(pf_rows, pf_columns):
     pygame.init()
     # set up play field
