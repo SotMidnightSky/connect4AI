@@ -9,7 +9,7 @@ RED = (255, 0, 0)
 YELLOW = (255, 255, 0)
 WINDOW_HEIGHT = 500
 WINDOW_WIDTH = 500
-def game1(pf_rows, pf_columns):
+def game1(pf_rows, pf_columns, drawdata):
     pygame.init()
     # set up play field
     pf_data = np.zeros( (pf_rows, pf_columns) )
@@ -35,14 +35,13 @@ def game1(pf_rows, pf_columns):
                 running = False
 
 
-        # Fill the background with white
 
-
-        # Draw a solid blue circle in the center
-
-        # pygame.draw.circle(screen, (0, 0, 255), (250, 250), 75)
         if pf_update == True:
-            pf_draw(pf_data, circle_radius)
+            if drawdata == True:
+                pf_draw(pf_data, circle_radius)
+            elif drawdata == False:
+                print(pf_data)
+
             pf_update = False
 
         player_display = player + 1

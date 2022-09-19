@@ -9,7 +9,7 @@ from basicgame import game1
 def print_hi(name):
     # Use a breakpoint in the code line below to debug your script.
     print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
-    game1(6,7)
+    game1(6,7,False)
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
