@@ -1,5 +1,6 @@
 import pygame
 import numpy as np
+from player import RandomPlayer
 #import sys
 
 BLACK = (0, 0, 0)
@@ -45,9 +46,10 @@ def game1(pf_rows, pf_columns, drawdata):
             pf_update = False
 
         player_display = player + 1
-        in_string = "Player: " + str(player_display) + " Column:"
-        next_move = input(in_string)
-
+        #in_string = "Player: " + str(player_display) + " Column:"
+        next_move = RandomPlayer.play(pf_columns)
+        #input(in_string)
+        print(next_move)
 
         column = int(next_move) - 1
         for i in reversed(range(pf_rows)):
